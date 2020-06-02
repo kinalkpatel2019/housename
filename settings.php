@@ -1060,6 +1060,13 @@ class FoSettingsPage
           'bk_pimg_options',
           array( $this, 'cpc_options_sanitize' )
         );
+        /* material */
+        register_setting(
+            'bk_material_options',
+            'bk_material_options',
+            array( $this, 'cpc_material_sanitize' )
+          );
+        /* material */ 
         add_settings_section(
           'setting_general', // ID
           '', // Title
@@ -1078,6 +1085,78 @@ class FoSettingsPage
           '',
           'font-setting-admin' // Page
         );
+        /* material section */
+        add_settings_section(
+            'bk_material_settings', // ID
+            '', // Title
+            '',
+            'font-setting-admin' // Page
+        );
+        /* material */
+        add_settings_field(
+            'bk_material_dibond',
+            'Dibond',
+            array( $this, 'print_material_section_info_dibond' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_acrylic',
+            'Acrylic',
+            array( $this, 'print_material_section_info_acrylic' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_painted_aluminium',
+            'Painted Aluminium',
+            array( $this, 'print_material_section_info_painted_aluminium' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_brushed_dibond',
+            'Brushed Dibond',
+            array( $this, 'print_material_section_info_brushed_dibond' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_brushed_aluminium',
+            'Brushed Aluminium',
+            array( $this, 'print_material_section_info_brushed_aluminium' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_brushed_stainless',
+            'Brushed Stainless',
+            array( $this, 'print_material_section_info_brushed_stainless' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_brushed_brass',
+            'Brushed Brass',
+            array( $this, 'print_material_section_info_brushed_brass' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_brushed_copper',
+            'Brushed Copper',
+            array( $this, 'print_material_section_info_brushed_copper' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_brushed_bronze',
+            'Brushed Bronze',
+            array( $this, 'print_material_section_info_brushed_bronze' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        /* material */
         add_settings_section(
           'cpc_settings_section',
           'cpc Settings Section',
@@ -1344,6 +1423,9 @@ class FoSettingsPage
     function cpc_options_sanitize($input){
         return $input;
     }
+    function cpc_material_sanitize($input){
+        return $input;
+    }
     /**
      * Print the Section text
      */
@@ -1413,6 +1495,35 @@ class FoSettingsPage
     public function bk_character_spacing_callback() {
         bk_character_spacing_setting();
     }
+    /*material */
+    public function print_material_section_info_dibond(){
+        bk_print_material_section_info('dibond');
+    }
+    public function print_material_section_info_acrylic(){
+        bk_print_material_section_info('acrylic');
+    }
+    public function print_material_section_info_painted_aluminium(){
+        bk_print_material_section_info('painted_aluminium');
+    }
+    public function print_material_section_info_brushed_dibond(){
+        bk_print_material_section_info('brushed_dibond');
+    }
+    public function print_material_section_info_brushed_aluminium(){
+        bk_print_material_section_info('brushed_aluminium');
+    }
+    public function print_material_section_info_brushed_stainless(){
+        bk_print_material_section_info('brushed_stainless');
+    }
+    public function print_material_section_info_brushed_brass(){
+        bk_print_material_section_info('brushed_brass');
+    }
+    public function print_material_section_info_brushed_copper(){
+        bk_print_material_section_info('brushed_copper');
+    }
+    public function print_material_section_info_brushed_bronze(){
+        bk_print_material_section_info('brushed_bronze');
+    }
+    /* material */
     public function bk_hst_gst_cb() {
       $misc_options = get_option( 'bk_misc_options' , array() );
       $value = isset( $misc_options['hst_gst_tax'] ) ?

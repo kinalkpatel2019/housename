@@ -276,11 +276,13 @@ function bkh_enqueue_scripts() {
 		wp_enqueue_script( 'bk-housename-js' );
 
 		$misc_options = get_option('bk_misc_options', array());
+		$material_options = get_option( 'bk_material_options' , array() );
 		$misc_opt = array(
 		  'hst_gst' => $misc_options['hst_gst_tax'],
 		  'installation_rate' => $misc_options['installation_rate'],
 			'delivery_rate' => $misc_options['delivery_rate'],
-			'lwidth' => $misc_options['spacing']
+			'lwidth' => $misc_options['spacing'],
+			'material_options'=>$material_options
 		);
 		wp_localize_script( 'bk-housename-js', 'bk_housename', $misc_opt );
 

@@ -81,51 +81,61 @@ function print_wall_colors() {
 }
 
 function print_materials($bk_cpc) {
+  $bk_mat = get_option('bk_material_options', array());
   $bk_materials_arr = array(
     'dibond'  => array(
       'name'  => 'Dibond',
       'class' => 'bk-m-dibond',
       'price' => $bk_cpc['dibond'],
+      'isvisible'=>$bk_mat['dibond'],
     ),
     'acrylic'  => array(
       'name'  => 'Acrylic +Plus',
       'class' => 'bk-m-acrylic active',
       'price' => $bk_cpc['acrylic'],
+      'isvisible'=>$bk_mat['acrylic'],
     ),
     'painted-aluminium'  => array(
       'name'  => 'Painted Aluminium',
       'class' => 'bk-m-pa',
       'price' =>  $bk_cpc['painted_aluminium'],
+      'isvisible'=>$bk_mat['painted_aluminium'],
     ),
     'brushed-dibond'  => array(
       'name'  => 'Brushed Dibond',
       'class' => 'bk-m-brushed bk-m-bd',
       'price' =>  $bk_cpc['brushed_dibond'],
+      'isvisible'=>$bk_mat['brushed_dibond'],
     ),
     'brushed-aluminium'  => array(
       'name'  => 'Brushed Aluminium',
       'class' => 'bk-m-brushed bk-m-ba',
       'price' => $bk_cpc['brushed_aluminium'],
+      'isvisible'=>$bk_mat['brushed_aluminium'],
     ),
     'brushed-stainless'  => array(
       'name'  => 'Brushed Stainless',
       'class' => 'bk-m-brushed bk-m-bs',
       'price' => $bk_cpc['brushed_stainless'],
+      'isvisible'=>$bk_mat['brushed_stainless'],
     ),
     'brushed-brass'  => array(
       'name'  => 'Brushed Brass',
       'class' => 'bk-m-bbrass',
       'price' => $bk_cpc['brushed_brass'],
+      'isvisible'=>$bk_mat['brushed_brass'],
     ),
     'brushed-copper'  => array(
       'name'  => 'Brushed Copper',
       'class' => 'bk-m-bcopper',
       'price' => $bk_cpc['brushed_copper'],
+      'isvisible'=>$bk_mat['brushed_copper'],
     ),
     'brushed-bronze'  => array(
       'name'  => 'Brushed Bronze',
       'class' => 'bk-m-bbronze',
       'price' => $bk_cpc['brushed_bronze'],
+      'isvisible'=>$bk_mat['brushed_bronze'],
     ),
   );
   foreach ($bk_materials_arr as $key => $value) {
@@ -134,9 +144,10 @@ function print_materials($bk_cpc) {
     $eprice8 = esc_attr($value['price']['8inch']);
     $eprice10 = esc_attr($value['price']['10inch']);
     $ename = esc_html($value['name']);
+      if($value['isvisible']){
   ?>
     <button class="button bk-button <?php echo $eclass;?>" data-price6="<?php echo $eprice6; ?>" data-price8="<?php echo $eprice8; ?>" data-price10="<?php echo $eprice10; ?>" data-name="bkwf-<?php echo $key;?>"><?php echo $ename; ?></button>
- <?php }
+ <?php } }
 }
 
 function bk_sign_price_calculator() {

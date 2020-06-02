@@ -314,6 +314,25 @@ function bk_print_material_row($material, $key) {?>
   </tr>
 <?php }
 
+function bk_print_material_section_info($material){
+    $material_options = get_option( 'bk_material_options' , array() );
+    $name1 = "bk_material_options[".$material."]";
+    $value1 = isset( $material_options[$material]) ?
+    esc_attr($material_options[$material]) : '';
+    $checkedtrue="";
+    $checkedfalse="";
+    if($value1)
+        $checkedtrue='checked=""';
+    else
+        $checkedfalse='checked=""';
+    echo '<div class="bk-cpc-input">';
+    echo '<input type="radio" name="'.$name1.'" value="1" class="small-text " placeholder="10" '.$checkedtrue.'/>&nbsp;Enable';
+    echo '<input type="radio" name="'.$name1.'" value="0" class="small-text " placeholder="10" '.$checkedfalse.'/>&nbsp;Disable';
+    /*printf(
+        '<input type="radio" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name1, $value1, is_rtl() ? 'rtl' : 'ltr'
+    );*/
+    echo '</div>';
+}
 function bk_print_material_setting($material) {
   $cpc_options = get_option( 'bk_cpc_options' , array() );
   // wp_die(print_r($cpc_options));
