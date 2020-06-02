@@ -182,9 +182,14 @@ function bk_sign_price_calculator() {
                 Choose a letter height
               </p>
               <p class="bk-field bk-letter-height">
-                <button class="button bk-button active" data-inch="6" id="bk-lh-6">6 inch</button>
+              <button class="button bk-button active" data-inch="5" id="bk-lh-5">5 inch</button>
+                <button class="button bk-button " data-inch="6" id="bk-lh-6">6 inch</button>
+                <button class="button bk-button " data-inch="7" id="bk-lh-7">7 inch</button>
                 <button class="button bk-button" data-inch="8" id="bk-lh-8">8 inch</button>
+                <button class="button bk-button " data-inch="9" id="bk-lh-9">9 inch</button>
                 <button class="button bk-button" data-inch="10" id="bk-lh-10">10 inch</button>
+                <button class="button bk-button " data-inch="11" id="bk-lh-11">11 inch</button>
+                <button class="button bk-button " data-inch="12" id="bk-lh-12">12 inch</button>
               </p>
             </div>
             <div class="bk-row bk-material-wrap">

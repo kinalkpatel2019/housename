@@ -318,63 +318,157 @@ function bk_print_material_setting($material) {
   $cpc_options = get_option( 'bk_cpc_options' , array() );
   // wp_die(print_r($cpc_options));
   $option = $material;
-  $name1 = "bk_cpc_options[".$material."][6inch]";
-  $name2 = "bk_cpc_options[".$material."][8inch]";
-  $name3 = "bk_cpc_options[".$material."][10inch]";
-  $value1 = isset( $cpc_options[$option]['6inch'] ) ?
+  $name1 = "bk_cpc_options[".$material."][5inch]";
+  $name2 = "bk_cpc_options[".$material."][6inch]";
+  $name3 = "bk_cpc_options[".$material."][7inch]";
+  $name4 = "bk_cpc_options[".$material."][8inch]";
+  $name5 = "bk_cpc_options[".$material."][9inch]";
+  $name6 = "bk_cpc_options[".$material."][10inch]";
+  $name7 = "bk_cpc_options[".$material."][11inch]";
+  $name8 = "bk_cpc_options[".$material."][12inch]";
+
+  $value1 = isset( $cpc_options[$option]['5inch'] ) ?
+  esc_attr($cpc_options[$option]['5inch']) : '';
+  $value2 = isset( $cpc_options[$option]['6inch'] ) ?
   esc_attr($cpc_options[$option]['6inch']) : '';
-  $value2 = isset( $cpc_options[$option]['8inch'] ) ?
+  $value3 = isset( $cpc_options[$option]['7inch'] ) ?
+  esc_attr($cpc_options[$option]['7inch']) : '';
+  $value4 = isset( $cpc_options[$option]['8inch'] ) ?
   esc_attr($cpc_options[$option]['8inch']) : '';
-  $value3 = isset( $cpc_options[$option]['10inch'] ) ?
+  $value5 = isset( $cpc_options[$option]['9inch'] ) ?
+  esc_attr($cpc_options[$option]['9inch']) : '';
+  $value6 = isset( $cpc_options[$option]['10inch'] ) ?
   esc_attr($cpc_options[$option]['10inch']) : '';
+  $value7 = isset( $cpc_options[$option]['11inch'] ) ?
+  esc_attr($cpc_options[$option]['11inch']) : '';
+  $value8 = isset( $cpc_options[$option]['12inch'] ) ?
+  esc_attr($cpc_options[$option]['12inch']) : '';
+
+
   echo '<div class="bk-cpc-input">';
-    echo "<span class='bk-cpc-size'>6 Inch: </span>";
+    echo "<span class='bk-cpc-size'>5 Inch: </span>";
     printf(
         '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name1, $value1, is_rtl() ? 'rtl' : 'ltr'
     );
   echo '</div>';
   echo '<div class="bk-cpc-input">';
-    echo "<span class='bk-cpc-size'>8 Inch: </span>";
+    echo "<span class='bk-cpc-size'>6 Inch: </span>";
     printf(
         '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name2, $value2, is_rtl() ? 'rtl' : 'ltr'
     );
   echo '</div>';
   echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>7 Inch: </span>";
+    printf(
+        '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name3, $value3, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>8 Inch: </span>";
+    printf(
+        '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name4, $value4, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>9 Inch: </span>";
+    printf(
+        '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name5, $value5, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
     echo "<span class='bk-cpc-size'>10 Inch: </span>";
     printf(
-        '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name3, $value3, is_rtl() ? 'rtl' : 'ltr'
+        '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name6, $value6, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>11 Inch: </span>";
+    printf(
+        '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name7, $value7, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>12 Inch: </span>";
+    printf(
+        '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name8, $value8, is_rtl() ? 'rtl' : 'ltr'
     );
   echo '</div>';
 }
 
 function bk_character_spacing_setting() {
   $misc_options = get_option( 'bk_misc_options' , array() );
-  $name1 = "bk_misc_options[spacing][6inch]";
-  $name2 = "bk_misc_options[spacing][8inch]";
-  $name3 = "bk_misc_options[spacing][10inch]";
-  $value1 = isset( $misc_options['spacing']['6inch'] ) ?
+  $name1 = "bk_misc_options[spacing][5inch]";
+  $name2 = "bk_misc_options[spacing][6inch]";
+  $name3 = "bk_misc_options[spacing][7inch]";
+  $name4 = "bk_misc_options[spacing][8inch]";
+  $name5 = "bk_misc_options[spacing][9inch]";
+  $name6 = "bk_misc_options[spacing][10inch]";
+  $name7 = "bk_misc_options[spacing][11inch]";
+  $name8 = "bk_misc_options[spacing][12inch]";
+
+  $value1 = isset( $misc_options['spacing']['5inch'] ) ?
+  esc_attr($misc_options['spacing']['5inch']) : '';
+  $value2 = isset( $misc_options['spacing']['6inch'] ) ?
   esc_attr($misc_options['spacing']['6inch']) : '';
-  $value2 = isset( $misc_options['spacing']['8inch'] ) ?
+  $value3 = isset( $misc_options['spacing']['7inch'] ) ?
+  esc_attr($misc_options['spacing']['7inch']) : '';
+  $value4 = isset( $misc_options['spacing']['8inch'] ) ?
   esc_attr($misc_options['spacing']['8inch']) : '';
-  $value3 = isset( $misc_options['spacing']['10inch'] ) ?
+  $value5 = isset( $misc_options['spacing']['9inch'] ) ?
+  esc_attr($misc_options['spacing']['9inch']) : '';
+  $value6 = isset( $misc_options['spacing']['10inch'] ) ?
   esc_attr($misc_options['spacing']['10inch']) : '';
+  $value7 = isset( $misc_options['spacing']['11inch'] ) ?
+  esc_attr($misc_options['spacing']['11inch']) : '';
+  $value8 = isset( $misc_options['spacing']['12inch'] ) ?
+  esc_attr($misc_options['spacing']['12inch']) : '';
 
   echo '<div class="bk-cpc-input">';
-    echo "<span class='bk-cpc-size'>6 Inch: </span>";
+    echo "<span class='bk-cpc-size'>5 Inch: </span>";
     printf(
         '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name1, $value1, is_rtl() ? 'rtl' : 'ltr'
     );
   echo '</div>';
   echo '<div class="bk-cpc-input">';
-    echo "<span class='bk-cpc-size'>8 Inch: </span>";
+    echo "<span class='bk-cpc-size'>6 Inch: </span>";
     printf(
         '<input type="text" name="%s" value="%s" class="small-text %s" placeholder="10" />', $name2, $value2, is_rtl() ? 'rtl' : 'ltr'
     );
   echo '</div>';
   echo '<div class="bk-cpc-input">';
-    echo "<span class='bk-cpc-size'>10 Inch: </span>";
+    echo "<span class='bk-cpc-size'>7 Inch: </span>";
     printf(
         '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name3, $value3, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>8 Inch: </span>";
+    printf(
+        '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name4, $value4, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>9 Inch: </span>";
+    printf(
+        '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name5, $value5, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>10 Inch: </span>";
+    printf(
+        '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name6, $value6, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>11 Inch: </span>";
+    printf(
+        '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name7, $value7, is_rtl() ? 'rtl' : 'ltr'
+    );
+  echo '</div>';
+  echo '<div class="bk-cpc-input">';
+    echo "<span class='bk-cpc-size'>12 Inch: </span>";
+    printf(
+        '<input type="text"  name="%s" value="%s" class="small-text %s" placeholder="10" />', $name8, $value8, is_rtl() ? 'rtl' : 'ltr'
     );
   echo '</div>';
 }

@@ -212,13 +212,28 @@ textarea:focus {
   width: 100%;
   word-break: break-word;
 }
+.bk-font-preview.bk-fs-5 {
+  font-size: 3em;
+}
 .bk-font-preview.bk-fs-6 {
-  font-size: 5em;
+  font-size: 3.5em;
+}
+.bk-font-preview.bk-fs-7 {
+  font-size: 3.75em;
 }
 .bk-font-preview.bk-fs-8 {
-  font-size: 5.5em;
+  font-size: 4em;
+}
+.bk-font-preview.bk-fs-9 {
+  font-size: 4.5em;
 }
 .bk-font-preview.bk-fs-10 {
+  font-size: 5em;
+}
+.bk-font-preview.bk-fs-11 {
+  font-size: 5.5em;
+}
+.bk-font-preview.bk-fs-12 {
   font-size: 6em;
 }
 .bk-name-meta {
