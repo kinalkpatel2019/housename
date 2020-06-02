@@ -140,13 +140,18 @@ function print_materials($bk_cpc) {
   );
   foreach ($bk_materials_arr as $key => $value) {
     $eclass = esc_attr($value['class']);
+    $eprice5 = esc_attr($value['price']['5inch']);
     $eprice6 = esc_attr($value['price']['6inch']);
+    $eprice7 = esc_attr($value['price']['7inch']);
     $eprice8 = esc_attr($value['price']['8inch']);
+    $eprice9 = esc_attr($value['price']['9inch']);
     $eprice10 = esc_attr($value['price']['10inch']);
+    $eprice11 = esc_attr($value['price']['11inch']);
+    $eprice12 = esc_attr($value['price']['12inch']);
     $ename = esc_html($value['name']);
       if($value['isvisible']){
   ?>
-    <button class="button bk-button <?php echo $eclass;?>" data-price6="<?php echo $eprice6; ?>" data-price8="<?php echo $eprice8; ?>" data-price10="<?php echo $eprice10; ?>" data-name="bkwf-<?php echo $key;?>"><?php echo $ename; ?></button>
+    <button class="button bk-button <?php echo $eclass;?>" data-price5="<?php echo $eprice5; ?>" data-price6="<?php echo $eprice6; ?>" data-price7="<?php echo $eprice7; ?>" data-price8="<?php echo $eprice8; ?>" data-price9="<?php echo $eprice9; ?>" data-price10="<?php echo $eprice10; ?>" data-price11="<?php echo $eprice11; ?>" data-price12="<?php echo $eprice12; ?>" data-name="bkwf-<?php echo $key;?>"><?php echo $ename; ?></button>
  <?php } }
 }
 
@@ -270,7 +275,7 @@ function bk_ajax_add_to_cart() {
 
 	$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
   $cart_item_data = array(
-    'bk-characters' => strlen($bk_text),
+    'bk-characters' => strlen(str_replace(" ","",$bk_text)),
     'bk-price' => $bk_tprice,
     'bk-text'=> $bk_text,
     'bk-size'=> $bk_size,
