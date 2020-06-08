@@ -277,17 +277,17 @@ textarea:focus {
 }
 .bk-material .bk-button.button.bk-m-bcopper,
 .bk-material .bk-button.button.bk-m-bcopper:hover {
-  display: none;
+  /*display: none;*/
   background-color: #dc927b;
 }
 .bk-material .bk-button.button.bk-m-bbronze,
 .bk-material .bk-button.button.bk-m-bbronze:hover {
-  display: none;
+  /*display: none;*/
   background-color: #6c5d66;
 }
 .bk-material .bk-button.button.bk-m-bbronze,
 .bk-material .bk-button.button.bk-m-bbronze:hover {
-  display: none;
+  /*display: none;*/
   background-color: #6c5d66;
 }
 .bk-material .bk-button.button.bk-m-brushed,
