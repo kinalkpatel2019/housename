@@ -1092,18 +1092,41 @@ class FoSettingsPage
             '',
             'font-setting-admin' // Page
         );
+
+
         /* material */
         add_settings_field(
             'bk_material_dibond',
-            'Dibond',
+            'Black Dibond',
             array( $this, 'print_material_section_info_dibond' ),
             'font-setting-admin',
             'bk_material_settings'
         );
         add_settings_field(
+            'bk_material_white_dibond',
+            'White Dibond',
+            array( $this, 'print_material_section_info_white_dibond' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
             'bk_material_acrylic',
-            'Acrylic',
+            'Black Acrylic',
             array( $this, 'print_material_section_info_acrylic' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_acrylic_white',
+            'White Acrylic',
+            array( $this, 'print_material_section_info_acrylic_white' ),
+            'font-setting-admin',
+            'bk_material_settings'
+        );
+        add_settings_field(
+            'bk_material_acrylic_coloured',
+            'Coloured Acrylic',
+            array( $this, 'print_material_section_info_acrylic_coloured' ),
             'font-setting-admin',
             'bk_material_settings'
         );
@@ -1130,7 +1153,7 @@ class FoSettingsPage
         );
         add_settings_field(
             'bk_material_brushed_stainless',
-            'Brushed Stainless',
+            'Stainless Steel',
             array( $this, 'print_material_section_info_brushed_stainless' ),
             'font-setting-admin',
             'bk_material_settings'
@@ -1165,18 +1188,39 @@ class FoSettingsPage
         );
         add_settings_field(
           'cpc_dibond',
-          'Dibond',
+          'Black Dibond',
           array( $this, 'dibond_callback' ),
           'font-setting-admin',
           'setting_general'
         );
         add_settings_field(
+            'cpc_dibond_white',
+            'White Dibond',
+            array( $this, 'dibond_white_callback' ),
+            'font-setting-admin',
+            'setting_general'
+          );
+        add_settings_field(
           'cpc_acrylic',
-          'Acrylic',
+          'Black Acrylic',
           array( $this, 'acrylic_callback' ),
           'font-setting-admin',
           'setting_general'
         );
+        add_settings_field(
+            'cpc_acrylic_white',
+            'White Acrylic',
+            array( $this, 'acrylic_white_callback' ),
+            'font-setting-admin',
+            'setting_general'
+          );
+          add_settings_field(
+            'cpc_acrylic_coloured',
+            'Coloured Acrylic',
+            array( $this, 'acrylic_coloured_callback' ),
+            'font-setting-admin',
+            'setting_general'
+          );
         add_settings_field(
           'cpc_pa',
           'Painted Aluminium',
@@ -1201,7 +1245,7 @@ class FoSettingsPage
         );
         add_settings_field(
           'cpc_bs',
-          'Brushed Stainless',
+          'Stainless Steel',
           array( $this, 'brushed_stainless_callback' ),
           'font-setting-admin',
           'setting_general'
@@ -1262,18 +1306,39 @@ class FoSettingsPage
         /* Product Images */
         add_settings_field(
           'bk_dibond_pimg',
-          'Dibond',
+          'Black Dibond',
           array( $this, 'bk_dibond_pimg_cb' ),
           'font-setting-admin',
           'bk_pimg_settings'
         );
         add_settings_field(
+            'bk_dibond_white_pimg',
+            'White Dibond',
+            array( $this, 'bk_dibond_white_pimg_cb' ),
+            'font-setting-admin',
+            'bk_pimg_settings'
+          );
+        add_settings_field(
           'bk_acrylic_pimg',
-          'Acrylic',
+          'Black Acrylic',
           array( $this, 'bk_acrylic_pimg_cb' ),
           'font-setting-admin',
           'bk_pimg_settings'
         );
+        add_settings_field(
+            'bk_acrylic_white_pimg',
+            'White Acrylic',
+            array( $this, 'bk_acrylic_white_pimg_cb' ),
+            'font-setting-admin',
+            'bk_pimg_settings'
+          );
+          add_settings_field(
+            'bk_acrylic_coloured_pimg',
+            'Coloured Acrylic',
+            array( $this, 'bk_acrylic_coloured_pimg_cb' ),
+            'font-setting-admin',
+            'bk_pimg_settings'
+          );
         add_settings_field(
           'bk_pa_pimg',
           'Painted Aluminium',
@@ -1297,7 +1362,7 @@ class FoSettingsPage
         );
         add_settings_field(
           'bk_bs_pimg',
-          'Brushed Stainless',
+          'Stainless Steel',
           array( $this, 'bk_bs_pimg_cb' ),
           'font-setting-admin',
           'bk_pimg_settings'
@@ -1468,8 +1533,17 @@ class FoSettingsPage
     public function dibond_callback() {
         bk_print_material_setting('dibond');
     }
+    public function dibond_white_callback() {
+        bk_print_material_setting('dibond_white');
+    }
     public function acrylic_callback() {
         bk_print_material_setting('acrylic');
+    }
+    public function acrylic_white_callback() {
+        bk_print_material_setting('acrylic_white');
+    }
+    public function acrylic_coloured_callback() {
+        bk_print_material_setting('acrylic_coloured');
     }
     public function pa_callback() {
         bk_print_material_setting('painted_aluminium');
@@ -1499,8 +1573,17 @@ class FoSettingsPage
     public function print_material_section_info_dibond(){
         bk_print_material_section_info('dibond');
     }
+    public function print_material_section_info_white_dibond(){
+        bk_print_material_section_info('white_dibond');
+    }
     public function print_material_section_info_acrylic(){
         bk_print_material_section_info('acrylic');
+    }
+    public function print_material_section_info_acrylic_white(){
+        bk_print_material_section_info('acrylic_white');
+    }
+    public function print_material_section_info_acrylic_coloured(){
+        bk_print_material_section_info('acrylic_coloured');
     }
     public function print_material_section_info_painted_aluminium(){
         bk_print_material_section_info('painted_aluminium');
@@ -1556,6 +1639,14 @@ class FoSettingsPage
           '<input type="url" name="bk_pimg_options[dibond]" value="%s" class="large-text %s" placeholder="" />', $value, is_rtl() ? 'rtl' : 'ltr'
       );
     }
+    public function bk_dibond_white_pimg_cb() {
+        $pimg_options = get_option( 'bk_pimg_options' , array() );
+        $value = isset( $pimg_options['dibond_white'] ) ?
+        esc_attr($pimg_options['dibond_white']) : '';
+        printf(
+            '<input type="url" name="bk_pimg_options[dibond_white]" value="%s" class="large-text %s" placeholder="" />', $value, is_rtl() ? 'rtl' : 'ltr'
+        );
+      }
     public function bk_acrylic_pimg_cb() {
       $pimg_options = get_option( 'bk_pimg_options' , array() );
       $value = isset( $pimg_options['acrylic'] ) ?
@@ -1564,6 +1655,22 @@ class FoSettingsPage
           '<input type="url" name="bk_pimg_options[acrylic]" value="%s" class="large-text %s" placeholder="" />', $value, is_rtl() ? 'rtl' : 'ltr'
       );
     }
+    public function bk_acrylic_white_pimg_cb() {
+        $pimg_options = get_option( 'bk_pimg_options' , array() );
+        $value = isset( $pimg_options['acrylic_white'] ) ?
+        esc_attr($pimg_options['acrylic_white']) : '';
+        printf(
+            '<input type="url" name="bk_pimg_options[acrylic_white]" value="%s" class="large-text %s" placeholder="" />', $value, is_rtl() ? 'rtl' : 'ltr'
+        );
+      }
+      public function bk_acrylic_coloured_pimg_cb() {
+        $pimg_options = get_option( 'bk_pimg_options' , array() );
+        $value = isset( $pimg_options['acrylic_coloured'] ) ?
+        esc_attr($pimg_options['acrylic_coloured']) : '';
+        printf(
+            '<input type="url" name="bk_pimg_options[acrylic_coloured]" value="%s" class="large-text %s" placeholder="" />', $value, is_rtl() ? 'rtl' : 'ltr'
+        );
+      }
     public function bk_pa_pimg_cb() {
       $pimg_options = get_option( 'bk_pimg_options' , array() );
       $value = isset( $pimg_options['painted-aluminium'] ) ?

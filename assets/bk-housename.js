@@ -83,6 +83,20 @@
     $(`.${selMaterial}`).addClass('active');
   });
 
+  //lustre
+  $('.bk-material-lustre').on('click','.button', function(){
+    const selectedlustre = $(this).html();
+    const sellustre = $(this).data('name');
+    $('.bk-sel-lustre').html(selectedlustre);
+    $('.bk-material-lustre .button.active').removeClass('active');
+    $(this).addClass('active');
+    const len = $('#bk-characters').html();
+    calculate_price(len);
+    //$('.bk-wall-font img').removeClass('active');
+    //$(`.${sellustre}`).addClass('active');
+  });
+
+
   $('.bk-letter-height').on('click','.button', function(){
     const selectedSize = $(this).data('inch');
     $('.bk-size-height').html(selectedSize);
@@ -143,6 +157,7 @@
     const fsize = fheight.trim() + ' x ' + fwidth.trim() + ' inches';
     const tprice = jQuery('.bk-total').html();
     const fmaterial = jQuery('.bk-sel-material').html();
+    const lustre = jQuery('.bk-sel-lustre').html();
     const sfont = jQuery('select[name=bk-fonts]').val();
     const sinstall= $('#bk-installation').prop("checked");
     const wall_surface = $('.bk-wall-colors button.active').html();
@@ -173,6 +188,7 @@
       bk_installation: install_method,
       bk_installation_price: inprice,
       bk_wall_surface: wall_surface,
+      bk_lustre:lustre.trim()
     };
     $.post(wc_add_to_cart_params.ajax_url,data,function(response){
       console.log('Ajax Res', response);

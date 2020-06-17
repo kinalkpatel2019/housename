@@ -274,16 +274,25 @@ textarea:focus {
 .bk-material .bk-button.button.bk-m-bbrass,
 .bk-material .bk-button.button.bk-m-bbrass:hover {
   background-color: #c4a143;
+  color:#000;
 }
 .bk-material .bk-button.button.bk-m-bcopper,
 .bk-material .bk-button.button.bk-m-bcopper:hover {
   /*display: none;*/
   background-color: #dc927b;
+  color:#000;
 }
 .bk-material .bk-button.button.bk-m-bbronze,
 .bk-material .bk-button.button.bk-m-bbronze:hover {
   /*display: none;*/
   background-color: #6c5d66;
+  color:#000;
+}
+.bk-material-lustre .bk-button.button.bk-mt-dibond,
+.bk-material-lustre .bk-button.button.bk-mt-dibond:hover {
+  /*display: none;*/
+  background-color: #000;
+  color:#fff;
 }
 .bk-material .bk-button.button.bk-m-bbronze,
 .bk-material .bk-button.button.bk-m-bbronze:hover {
@@ -293,6 +302,18 @@ textarea:focus {
 .bk-material .bk-button.button.bk-m-brushed,
 .bk-material .bk-button.button.bk-m-brushed:hover {
   background-color: #a5a6a9;
+  color:#000;
+}
+.bk-material .bk-button.button.bk-m-dibond-white,
+.bk-material .bk-button.button.bk-m-dibond-white:hover,.bk-material .bk-button.button.bk-m-acrylic-white,
+.bk-material .bk-button.button.bk-m-acrylic-white:hover {
+  background-color: #fff;
+  color:#000 !important;
+}
+.bk-material .bk-button.button.bk-m-acrylic-coloured,
+.bk-material .bk-button.button.bk-m-acrylic-coloured:hover {
+  background-color: #ffffcc;
+  color:#000 !important;
 }
 .woocommerce .button.bk-button {
   margin: 4px;
@@ -412,7 +433,7 @@ textarea:focus {
 }
 .woocommerce .bk-button.button.active,
 .woocommerce .bk-button.button.active:hover {
-  color: #fff !important;
+  /*color: #fff !important;*/
   border: 2px solid #c0272d;
 }
 .bkw-red-brick,

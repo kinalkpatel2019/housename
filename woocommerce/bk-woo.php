@@ -79,33 +79,73 @@ function print_wall_colors() {
   <button class="<?php echo esc_attr($classes);?>" data-wcolor="<?php echo esc_attr($key);?>"><?php echo $value; ?></button>
 <?php }
 }
-
+function print_materials_type(){
+  $bk_material_type=array(
+    'gloss'  => array(
+      'name'  => 'Gloss',
+      'class' => 'bk-mt-dibond active',
+    ),
+    'matte'  => array(
+      'name'  => 'Matte',
+      'class' => 'bk-mt-dibond',
+    ),
+  );
+  foreach ($bk_material_type as $key => $value) {
+    $eclass=$value['class'];
+    $ename=$value['name'];
+  ?>
+    <button class="button bk-button <?php echo $eclass;?>" data-name="<?php echo $ename; ?>"><?php echo $ename; ?></button>
+ <?php }
+}
 function print_materials($bk_cpc) {
+  
   $bk_mat = get_option('bk_material_options', array());
-  $bk_materials_arr = array(
+  $bk_material_arr_10=array(
     'dibond'  => array(
-      'name'  => 'Dibond',
+      'name'  => 'Black Dibond',
       'class' => 'bk-m-dibond',
       'price' => $bk_cpc['dibond'],
       'isvisible'=>$bk_mat['dibond'],
     ),
+    'dibond_white'  => array(
+      'name'  => 'White Dibond',
+      'class' => 'bk-m-dibond-white',
+      'price' => $bk_cpc['dibond_white'],
+      'isvisible'=>$bk_mat['white_dibond'],
+    ),
+    'brushed-dibond'  => array(
+      'name'  => 'Brushed Silver Dibond',
+      'class' => 'bk-m-brushed bk-m-bd',
+      'price' =>  $bk_cpc['brushed_dibond'],
+      'isvisible'=>$bk_mat['brushed_dibond'],
+    ),
+  ); 
+  $bk_material_arr_30=array(
     'acrylic'  => array(
-      'name'  => 'Acrylic +Plus',
+      'name'  => 'Black Acrylic',
       'class' => 'bk-m-acrylic active',
       'price' => $bk_cpc['acrylic'],
       'isvisible'=>$bk_mat['acrylic'],
     ),
+    'acrylic_white'  => array(
+      'name'  => 'White Acrylic',
+      'class' => 'bk-m-acrylic-white',
+      'price' => $bk_cpc['acrylic_white'],
+      'isvisible'=>$bk_mat['acrylic_white'],
+    ),
+    'acrylic_coloured'  => array(
+      'name'  => 'Coloured Acrylic',
+      'class' => 'bk-m-acrylic-coloured',
+      'price' => $bk_cpc['acrylic_coloured'],
+      'isvisible'=>$bk_mat['acrylic_coloured'],
+    ),
+  ); 
+  $bk_material_arr_lifetime=array(
     'painted-aluminium'  => array(
       'name'  => 'Painted Aluminium',
       'class' => 'bk-m-pa',
       'price' =>  $bk_cpc['painted_aluminium'],
       'isvisible'=>$bk_mat['painted_aluminium'],
-    ),
-    'brushed-dibond'  => array(
-      'name'  => 'Brushed Dibond',
-      'class' => 'bk-m-brushed bk-m-bd',
-      'price' =>  $bk_cpc['brushed_dibond'],
-      'isvisible'=>$bk_mat['brushed_dibond'],
     ),
     'brushed-aluminium'  => array(
       'name'  => 'Brushed Aluminium',
@@ -113,32 +153,35 @@ function print_materials($bk_cpc) {
       'price' => $bk_cpc['brushed_aluminium'],
       'isvisible'=>$bk_mat['brushed_aluminium'],
     ),
-    'brushed-stainless'  => array(
-      'name'  => 'Brushed Stainless',
-      'class' => 'bk-m-brushed bk-m-bs',
-      'price' => $bk_cpc['brushed_stainless'],
-      'isvisible'=>$bk_mat['brushed_stainless'],
-    ),
     'brushed-brass'  => array(
-      'name'  => 'Brushed Brass',
+      'name'  => 'Brass',
       'class' => 'bk-m-bbrass',
       'price' => $bk_cpc['brushed_brass'],
       'isvisible'=>$bk_mat['brushed_brass'],
     ),
-    'brushed-copper'  => array(
-      'name'  => 'Brushed Copper',
-      'class' => 'bk-m-bcopper',
-      'price' => $bk_cpc['brushed_copper'],
-      'isvisible'=>$bk_mat['brushed_copper'],
-    ),
     'brushed-bronze'  => array(
-      'name'  => 'Brushed Bronze',
+      'name'  => 'Bronze',
       'class' => 'bk-m-bbronze',
       'price' => $bk_cpc['brushed_bronze'],
       'isvisible'=>$bk_mat['brushed_bronze'],
     ),
-  );
-  foreach ($bk_materials_arr as $key => $value) {
+    'brushed-copper'  => array(
+      'name'  => 'Copper',
+      'class' => 'bk-m-bcopper',
+      'price' => $bk_cpc['brushed_copper'],
+      'isvisible'=>$bk_mat['brushed_copper'],
+    ),
+    'brushed-stainless'  => array(
+      'name'  => 'Stainless Steel',
+      'class' => 'bk-m-brushed bk-m-bs',
+      'price' => $bk_cpc['brushed_stainless'],
+      'isvisible'=>$bk_mat['brushed_stainless'],
+    ),
+  ); 
+  ?>
+  <span style="display:block;">10 Year Warrenty</span>
+  <?php
+  foreach ($bk_material_arr_10 as $key => $value) {
     $eclass = esc_attr($value['class']);
     $eprice5 = esc_attr($value['price']['5inch']);
     $eprice6 = esc_attr($value['price']['6inch']);
@@ -152,7 +195,45 @@ function print_materials($bk_cpc) {
       if($value['isvisible']){
   ?>
     <button class="button bk-button <?php echo $eclass;?>" data-price5="<?php echo $eprice5; ?>" data-price6="<?php echo $eprice6; ?>" data-price7="<?php echo $eprice7; ?>" data-price8="<?php echo $eprice8; ?>" data-price9="<?php echo $eprice9; ?>" data-price10="<?php echo $eprice10; ?>" data-price11="<?php echo $eprice11; ?>" data-price12="<?php echo $eprice12; ?>" data-name="bkwf-<?php echo $key;?>"><?php echo $ename; ?></button>
- <?php } }
+ <?php }
+  } ?>
+  <span style="display:block;">30 Year Warrenty</span>
+  <?php
+  foreach ($bk_material_arr_30 as $key => $value) {
+    $eclass = esc_attr($value['class']);
+    $eprice5 = esc_attr($value['price']['5inch']);
+    $eprice6 = esc_attr($value['price']['6inch']);
+    $eprice7 = esc_attr($value['price']['7inch']);
+    $eprice8 = esc_attr($value['price']['8inch']);
+    $eprice9 = esc_attr($value['price']['9inch']);
+    $eprice10 = esc_attr($value['price']['10inch']);
+    $eprice11 = esc_attr($value['price']['11inch']);
+    $eprice12 = esc_attr($value['price']['12inch']);
+    $ename = esc_html($value['name']);
+      if($value['isvisible']){
+  ?>
+    <button class="button bk-button <?php echo $eclass;?>" data-price5="<?php echo $eprice5; ?>" data-price6="<?php echo $eprice6; ?>" data-price7="<?php echo $eprice7; ?>" data-price8="<?php echo $eprice8; ?>" data-price9="<?php echo $eprice9; ?>" data-price10="<?php echo $eprice10; ?>" data-price11="<?php echo $eprice11; ?>" data-price12="<?php echo $eprice12; ?>" data-name="bkwf-<?php echo $key;?>"><?php echo $ename; ?></button>
+ <?php }
+  } ?>
+  <span style="display:block;">Lifetime Warrenty</span>
+  <?php
+  foreach ($bk_material_arr_lifetime as $key => $value) {
+    $eclass = esc_attr($value['class']);
+    $eprice5 = esc_attr($value['price']['5inch']);
+    $eprice6 = esc_attr($value['price']['6inch']);
+    $eprice7 = esc_attr($value['price']['7inch']);
+    $eprice8 = esc_attr($value['price']['8inch']);
+    $eprice9 = esc_attr($value['price']['9inch']);
+    $eprice10 = esc_attr($value['price']['10inch']);
+    $eprice11 = esc_attr($value['price']['11inch']);
+    $eprice12 = esc_attr($value['price']['12inch']);
+    $ename = esc_html($value['name']);
+      if($value['isvisible']){
+  ?>
+    <button class="button bk-button <?php echo $eclass;?>" data-price5="<?php echo $eprice5; ?>" data-price6="<?php echo $eprice6; ?>" data-price7="<?php echo $eprice7; ?>" data-price8="<?php echo $eprice8; ?>" data-price9="<?php echo $eprice9; ?>" data-price10="<?php echo $eprice10; ?>" data-price11="<?php echo $eprice11; ?>" data-price12="<?php echo $eprice12; ?>" data-name="bkwf-<?php echo $key;?>"><?php echo $ename; ?></button>
+ <?php }
+  }
+
 }
 
 function bk_sign_price_calculator() {
@@ -195,13 +276,13 @@ function bk_sign_price_calculator() {
           <div class="bk-field bk-sel-order">
             <div class="bk-row bk-lh-wrap">
               <p class="bk-field bk-lh-text">
-                Choose a letter height
+                Choose capital letter height
               </p>
               <p class="bk-field bk-letter-height">
-              <button class="button bk-button active" data-inch="5" id="bk-lh-5">5 inch</button>
+              <button class="button bk-button" data-inch="5" id="bk-lh-5">5 inch</button>
                 <button class="button bk-button " data-inch="6" id="bk-lh-6">6 inch</button>
                 <button class="button bk-button " data-inch="7" id="bk-lh-7">7 inch</button>
-                <button class="button bk-button" data-inch="8" id="bk-lh-8">8 inch</button>
+                <button class="button bk-button active" data-inch="8" id="bk-lh-8">8 inch</button>
                 <button class="button bk-button " data-inch="9" id="bk-lh-9">9 inch</button>
                 <button class="button bk-button" data-inch="10" id="bk-lh-10">10 inch</button>
                 <button class="button bk-button " data-inch="11" id="bk-lh-11">11 inch</button>
@@ -210,10 +291,18 @@ function bk_sign_price_calculator() {
             </div>
             <div class="bk-row bk-material-wrap">
               <p class="bk-field bk-material-text">
-                Choose 1/4 inch material to be pin mounted with spacers
+                Choose a material ( all materials are 1/4" thick )
               </p>
               <p class="bk-field bk-material">
               <?php print_materials($bk_cpc); ?>
+              </p>
+            </div>
+            <div class="bk-row bk-material-wrap">
+              <p class="bk-field bk-material-text">
+                Choose a Lustre
+              </p>
+              <p class="bk-field bk-material-lustre">
+              <?php print_materials_type(); ?>
               </p>
             </div>
           </div>
@@ -230,8 +319,9 @@ function bk_sign_price_calculator() {
 						?>
           </div>
           <div class="bk-field bk-sel-summary">
-            <p class="bk-m-inline-block">Letter Height: <span class="bk-size-height bk-sel-height bk-sel-action">6</span> <span class="bk-sel-action">inch</span></p>
-            <p class="bk-m-inline-block">Material: <span class="bk-sel-material bk-sel-action">Acrylic +Plus</span></p>
+            <p class="bk-m-inline-block">Letter Height: <span class="bk-size-height bk-sel-height bk-sel-action">8</span> <span class="bk-sel-action">inch</span></p>
+            <p class="bk-m-inline-block">Material: <span class="bk-sel-material bk-sel-action">Black Acrylic</span></p>
+            <p class="bk-m-inline-block">Lustre: <span class="bk-sel-lustre bk-sel-action">Gloss</span></p>
             <p class="bk-m-inline-block">Font: <span class="bk-sel-font bk-sel-action">Amazone</span></p>
             <div class="bk-delivery-option">
               <button class="button bk-button" id="bk-install-basic" data-install="basic">Install Yourself</button>
@@ -271,7 +361,8 @@ function bk_ajax_add_to_cart() {
   $bk_font = $_POST['bk_font'];
   $bk_installation = $_POST['bk_installation'];
   $bk_installation_price = $_POST['bk_installation_price'];
-	$bk_wall_surface = $_POST['bk_wall_surface'];
+  $bk_wall_surface = $_POST['bk_wall_surface'];
+  $bk_lustre = $_POST['bk_lustre'];
 
 	$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
   $cart_item_data = array(
@@ -283,7 +374,8 @@ function bk_ajax_add_to_cart() {
     'bk-font' => $bk_font,
     'bk-installation' => $bk_installation,
     'bk-installation-price' => $bk_installation_price,
-		'bk-wall-surface' => $bk_wall_surface,
+    'bk-wall-surface' => $bk_wall_surface,
+    'bk-lustre'=>$bk_lustre
   );
   $bkaddtocart = WC()->cart->add_to_cart($product_id,$quantity,0,array(), $cart_item_data);
 	if ($passed_validation && $bkaddtocart) {
@@ -341,7 +433,11 @@ function bkh_display_cart_data( $item_data, $cart_item ) {
         'value'   => wc_clean( $cart_item['bk-material'] ),
         'display' => '',
     );
-
+    $item_data[] = array(
+      'key'     => __( 'Lustre', 'bkh' ),
+      'value'   => wc_clean( $cart_item['bk-lustre'] ),
+      'display' => '',
+  );
     $item_data[] = array(
         'key'     => __( 'Font', 'bkh' ),
         'value'   => wc_clean( $cart_item['bk-font'] ),
@@ -389,6 +485,7 @@ function bkh_add_cart_meta_data( $item, $cart_item_key, $values, $order ) {
     }
     $item->add_meta_data( __( 'Approx Size', 'bkh' ), $values['bk-size'] );
     $item->add_meta_data( __( 'Material', 'bkh' ), $values['bk-material'] );
+    $item->add_meta_data( __( 'Lustre', 'bkh' ), $values['bk-lustre'] );
     $item->add_meta_data( __( 'Font', 'bkh' ), $values['bk-font'] );
     $item->add_meta_data( __( 'Text', 'bkh' ), $values['bk-text'] );
     $item->add_meta_data( __( 'Characters', 'bkh' ), $values['bk-characters'] );
